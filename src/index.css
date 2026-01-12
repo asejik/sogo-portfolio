@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  /* The Deep Void (Backgrounds) */
+  --color-sanctum-900: #020617; /* Slate-950 */
+  --color-sanctum-800: #0f172a; /* Slate-900 */
+  --color-sanctum-300: #cbd5e1; /* Slate-300 */
+
+  /* The Royal Foundation (Accents) */
+  --color-gold-400: #fbbf24; /* Amber-400 */
+  --color-gold-500: #f59e0b; /* Amber-500 */
+  --color-gold-600: #d97706; /* Amber-600 */
+
+  /* The Tech/AI (Highlights) */
+  --color-cyan-400: #22d3ee; /* Electric Blue */
+  --color-cyan-900: #164e63; /* Dark Cyan */
+
+  /* Typography */
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'Fira Code', monospace;
+
+  /* Custom Animations */
+  --animate-spin-slow: spin 12s linear infinite;
+}
+
+/* Base Styles */
+body {
+  @apply bg-sanctum-900 text-sanctum-300 antialiased font-sans;
+}
