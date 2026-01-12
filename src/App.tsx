@@ -3,7 +3,10 @@ import Hero from './components/sections/Hero';
 import TechTicker from './components/sections/TechTicker';
 import BentoGrid from './components/sections/BentoGrid';
 import FeaturedProjects from './components/sections/FeaturedProjects';
+import Garden from './components/sections/Garden';
+import Contact from './components/sections/Contact';
 import Footer from './components/layout/Footer';
+import ScrollToTop from './components/ui/ScrollToTop';
 
 function App() {
   return (
@@ -15,10 +18,12 @@ function App() {
         <TechTicker />
         <BentoGrid />
         <FeaturedProjects />
-        {/* We will add the Garden section later if you decide to write articles */}
+        <Garden />
+        <Contact />
       </main>
 
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }
