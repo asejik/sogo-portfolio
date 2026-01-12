@@ -1,18 +1,14 @@
+import Hero from './components/sections/Hero';
+
 function App() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-sanctum-900">
-      <div className="text-center space-y-4">
-        <h1 className="text-4xl font-bold text-white">
-          Sogo <span className="text-gold-500">Ayenigba</span>
-        </h1>
-        <p className="text-cyan-400 font-mono">
-          System Status: Online
-        </p>
-        <div className="p-4 border border-sanctum-300/10 rounded bg-sanctum-800">
-          Tailwind v4 is active.
-        </div>
-      </div>
-    </div>
+    <main className="bg-sanctum-900 min-h-screen text-sanctum-300">
+      {/* We will add Navbar here in the next step */}
+
+      <Hero />
+
+      {/* We will add Marquee here */}
+    </main>
   );
 }
 
