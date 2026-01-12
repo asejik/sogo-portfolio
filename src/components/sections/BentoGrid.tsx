@@ -1,5 +1,16 @@
 import { motion } from 'framer-motion';
-import { MapPin, Globe, ArrowUpRight, Github, Twitter, Linkedin, Mail, Cpu } from 'lucide-react';
+import {
+  MapPin,
+  Globe,
+  ArrowUpRight,
+  Github,
+  Twitter,
+  Linkedin,
+  Mail,
+  Cpu,
+  Instagram,
+  Facebook
+} from 'lucide-react';
 
 const BentoGrid = () => {
   return (
@@ -43,7 +54,7 @@ const BentoGrid = () => {
                 Currently bridging the gap between <span className="text-cyan-400">Civil Engineering logic</span> and <span className="text-cyan-400">Software Architecture</span>.
               </p>
             </div>
-            <div className="mt-8 flex gap-3">
+            <div className="mt-8 flex gap-3 flex-wrap">
                <span className="px-3 py-1 rounded-full bg-sanctum-900 border border-sanctum-300/10 text-xs font-mono text-cyan-400">#Builder</span>
                <span className="px-3 py-1 rounded-full bg-sanctum-900 border border-sanctum-300/10 text-xs font-mono text-cyan-400">#Mentor</span>
                <span className="px-3 py-1 rounded-full bg-sanctum-900 border border-sanctum-300/10 text-xs font-mono text-cyan-400">#Christian</span>
@@ -58,10 +69,8 @@ const BentoGrid = () => {
              transition={{ delay: 0.1 }}
              className="bg-sanctum-800 rounded-2xl border border-sanctum-300/10 p-6 relative overflow-hidden group hover:border-cyan-400/30 transition-colors"
           >
-             <div className="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity bg-[url('https://api.mapbox.com/styles/v1/mapbox/dark-v10/static/4.55,8.49,11,0/400x400?access_token=YOUR_TOKEN')] bg-cover bg-center grayscale hover:grayscale-0">
-                {/* Fallback gradient if no map image yet */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 to-sanctum-900/90 mix-blend-multiply" />
-             </div>
+             {/* Abstract Map Background */}
+             <div className="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity bg-gradient-to-br from-blue-900/40 to-sanctum-900/90 mix-blend-multiply" />
 
              <div className="relative z-10 h-full flex flex-col justify-between">
                 <div className="self-end p-2 bg-sanctum-900/80 backdrop-blur rounded-lg border border-sanctum-300/10">
@@ -83,12 +92,19 @@ const BentoGrid = () => {
              transition={{ delay: 0.2 }}
              className="bg-gold-500 rounded-2xl p-6 flex flex-col justify-center items-center text-sanctum-900 text-center group relative overflow-hidden"
           >
-             <div className="relative z-10">
+             <div className="relative z-10 w-full">
                 <h3 className="text-xl font-bold mb-4">Let's Connect</h3>
-                <div className="flex gap-4 justify-center">
-                   <a href="https://github.com/sogoayenigba" target="_blank" rel="noreferrer" className="p-2 bg-sanctum-900/10 hover:bg-sanctum-900/20 rounded-full transition-colors"><Github size={20} /></a>
-                   <a href="https://twitter.com" target="_blank" rel="noreferrer" className="p-2 bg-sanctum-900/10 hover:bg-sanctum-900/20 rounded-full transition-colors"><Twitter size={20} /></a>
-                   <a href="mailto:hello@sogoayenigba.site" className="p-2 bg-sanctum-900/10 hover:bg-sanctum-900/20 rounded-full transition-colors"><Mail size={20} /></a>
+                <div className="flex flex-wrap gap-3 justify-center">
+                   <a href="https://github.com/asejik" target="_blank" rel="noreferrer" title="GitHub" className="p-2 bg-sanctum-900/10 hover:bg-sanctum-900/20 rounded-full transition-colors"><Github size={20} /></a>
+                   <a href="https://linkedin.com/in/sogoayenigba" target="_blank" rel="noreferrer" title="LinkedIn" className="p-2 bg-sanctum-900/10 hover:bg-sanctum-900/20 rounded-full transition-colors"><Linkedin size={20} /></a>
+                   <a href="https://x.com/ayenigbasogo" target="_blank" rel="noreferrer" title="X (Twitter)" className="p-2 bg-sanctum-900/10 hover:bg-sanctum-900/20 rounded-full transition-colors"><Twitter size={20} /></a>
+                   <a href="https://instagram.com/sogoayenigba" target="_blank" rel="noreferrer" title="Instagram" className="p-2 bg-sanctum-900/10 hover:bg-sanctum-900/20 rounded-full transition-colors"><Instagram size={20} /></a>
+                   <a href="https://facebook.com/asejik" target="_blank" rel="noreferrer" title="Facebook" className="p-2 bg-sanctum-900/10 hover:bg-sanctum-900/20 rounded-full transition-colors"><Facebook size={20} /></a>
+                </div>
+                <div className="mt-4 pt-4 border-t border-sanctum-900/10">
+                    <a href="mailto:hello@sogoayenigba.site" className="text-sm font-mono hover:underline flex items-center justify-center gap-2">
+                        <Mail size={14} /> hello@sogoayenigba.site
+                    </a>
                 </div>
              </div>
              {/* Hover shine effect */}
