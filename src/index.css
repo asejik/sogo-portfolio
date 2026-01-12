@@ -1,6 +1,19 @@
 @import "tailwindcss";
 
 @theme {
+  /* Add these inside the @theme { ... } block */
+  --animate-marquee: marquee 25s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 25s linear infinite;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+  }
+
+  @keyframes marquee-reverse {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+  }
   /* The Deep Void (Backgrounds) */
   --color-sanctum-900: #020617; /* Slate-950 */
   --color-sanctum-800: #0f172a; /* Slate-900 */
