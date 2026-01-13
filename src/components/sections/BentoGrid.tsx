@@ -97,7 +97,7 @@ const BentoGrid = () => {
                 <div className="flex flex-wrap gap-3 justify-center">
                    <a href="https://github.com/asejik" target="_blank" rel="noreferrer" title="GitHub" className="p-2 bg-sanctum-900/10 hover:bg-sanctum-900/20 rounded-full transition-colors"><Github size={20} /></a>
                    <a href="https://linkedin.com/in/sogoayenigba" target="_blank" rel="noreferrer" title="LinkedIn" className="p-2 bg-sanctum-900/10 hover:bg-sanctum-900/20 rounded-full transition-colors"><Linkedin size={20} /></a>
-                   <a href="https://x.com/ayenigbasogo" target="_blank" rel="noreferrer" title="X (Twitter)" className="p-2 bg-sanctum-900/10 hover:bg-sanctum-900/20 rounded-full transition-colors"><Twitter size={20} /></a>
+                   <a href="https://x.com/sogoayenigba" target="_blank" rel="noreferrer" title="X (Twitter)" className="p-2 bg-sanctum-900/10 hover:bg-sanctum-900/20 rounded-full transition-colors"><Twitter size={20} /></a>
                    <a href="https://instagram.com/sogoayenigba" target="_blank" rel="noreferrer" title="Instagram" className="p-2 bg-sanctum-900/10 hover:bg-sanctum-900/20 rounded-full transition-colors"><Instagram size={20} /></a>
                    <a href="https://facebook.com/asejik" target="_blank" rel="noreferrer" title="Facebook" className="p-2 bg-sanctum-900/10 hover:bg-sanctum-900/20 rounded-full transition-colors"><Facebook size={20} /></a>
                 </div>

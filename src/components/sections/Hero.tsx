@@ -61,15 +61,23 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <button className="flex items-center justify-center gap-2 px-8 py-4 bg-gold-500 hover:bg-gold-600 text-sanctum-900 font-bold rounded-lg transition-all transform hover:-translate-y-1">
+            {/* Primary Button -> Links to Projects Section */}
+            <a
+              href="#projects"
+              className="flex items-center justify-center gap-2 px-8 py-4 bg-gold-500 hover:bg-gold-600 text-sanctum-900 font-bold rounded-lg transition-all transform hover:-translate-y-1"
+            >
               View Proof of Work
               <ArrowRight size={20} />
-            </button>
+            </a>
 
-            <button className="flex items-center justify-center gap-2 px-8 py-4 border border-sanctum-300/20 hover:border-cyan-400 text-sanctum-300 hover:text-cyan-400 rounded-lg transition-all">
+            {/* Secondary Button -> Links to Garden Section */}
+            <a
+              href="#garden"
+              className="flex items-center justify-center gap-2 px-8 py-4 border border-sanctum-300/20 hover:border-cyan-400 text-sanctum-300 hover:text-cyan-400 rounded-lg transition-all"
+            >
               <Code2 size={20} />
               Read My Notes
-            </button>
+            </a>
           </motion.div>
         </div>
 

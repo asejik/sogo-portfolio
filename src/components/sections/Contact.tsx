@@ -29,7 +29,7 @@ const Contact = () => {
               <Mail size={20} /> Send an Email
             </a>
             <a
-              href="https://x.com/ayenigbasogo"
+              href="https://x.com/sogoayenigba"
               target="_blank"
               rel="noreferrer"
               className="flex items-center justify-center gap-2 px-8 py-4 bg-sanctum-800 hover:bg-sanctum-700 border border-sanctum-300/10 text-white font-bold rounded-xl transition-colors"

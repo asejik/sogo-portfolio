@@ -18,7 +18,7 @@ const Footer = () => {
         {/* Links */}
         <div className="flex gap-6">
           <a href="https://github.com/asejik" className="text-sanctum-300 hover:text-cyan-400 transition-colors"><Github size={20} /></a>
-          <a href="https://twitter.com/ayenigbasogo" className="text-sanctum-300 hover:text-cyan-400 transition-colors"><Twitter size={20} /></a>
+          <a href="https://twitter.com/sogoayenigba" className="text-sanctum-300 hover:text-cyan-400 transition-colors"><Twitter size={20} /></a>
           <a href="https://linkedin.com/in/sogoayenigba" className="text-sanctum-300 hover:text-cyan-400 transition-colors"><Linkedin size={20} /></a>
         </div>
       </div>
