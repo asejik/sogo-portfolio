@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Code2 } from 'lucide-react';
+// 1. Import the image
+import headshot from '../../assets/headshot.png';
 
 const Hero: React.FC = () => {
   return (
@@ -39,10 +41,10 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-5xl md:text-7xl font-bold text-white leading-[1.1]"
+            className="text-4xl md:text-6xl font-bold text-white leading-[1.1]"
           >
-            Building intelligence <br />
-            with <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Code</span>.
+            I turn ideas into <br />
+            deployed <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Apps</span> & <span className="text-gold-500">AI Agents</span> fast.
           </motion.h1>
 
           <motion.p
@@ -51,7 +53,9 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-sanctum-300 text-lg md:text-xl max-w-lg leading-relaxed"
           >
-            I am <strong className="text-white">Sogo Ayenigba</strong>. A Software Engineer bridging the gap between complex algorithms and human potential.
+            I am <strong className="text-white">Sogo Ayenigba</strong>, an AI Application Developer & Automation Specialist.
+            <br /><br />
+            I build functional, beautiful web applications faster than traditional cycles allow—moving you from "Concept" to "Deployed" efficiently.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -61,7 +65,6 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            {/* Primary Button -> Links to Projects Section */}
             <a
               href="#projects"
               className="flex items-center justify-center gap-2 px-8 py-4 bg-gold-500 hover:bg-gold-600 text-sanctum-900 font-bold rounded-lg transition-all transform hover:-translate-y-1"
@@ -70,7 +73,6 @@ const Hero: React.FC = () => {
               <ArrowRight size={20} />
             </a>
 
-            {/* Secondary Button -> Links to Garden Section */}
             <a
               href="#garden"
               className="flex items-center justify-center gap-2 px-8 py-4 border border-sanctum-300/20 hover:border-cyan-400 text-sanctum-300 hover:text-cyan-400 rounded-lg transition-all"
@@ -81,40 +83,31 @@ const Hero: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Right Column: The "Digital Twin" (Placeholder for Headshot) */}
+        {/* Right Column: The "Holographic" Headshot */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.4 }}
           className="relative hidden md:flex justify-center"
         >
-            <div className="relative w-full max-w-md aspect-square bg-sanctum-800 rounded-2xl border border-sanctum-300/10 shadow-2xl p-8 rotate-3 hover:rotate-0 transition-transform duration-500 group">
+            {/* The Container (Keeps the glow and rotation) */}
+            <div className="relative w-full max-w-md aspect-square bg-sanctum-800/50 rounded-2xl border border-sanctum-300/10 shadow-2xl p-3 rotate-3 hover:rotate-0 transition-transform duration-500 group backdrop-blur-sm">
+
                 {/* Glow Effects */}
-                <div className="absolute -top-10 -right-10 w-32 h-32 bg-gold-500/10 rounded-full blur-3xl group-hover:bg-gold-500/20 transition-all"></div>
-                <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-cyan-500/10 rounded-full blur-3xl group-hover:bg-cyan-500/20 transition-all"></div>
+                <div className="absolute -top-10 -right-10 w-32 h-32 bg-gold-500/10 rounded-full blur-3xl group-hover:bg-gold-500/20 transition-all z-0"></div>
+                <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-cyan-500/10 rounded-full blur-3xl group-hover:bg-cyan-500/20 transition-all z-0"></div>
 
-                {/* Code Window UI */}
-                <div className="flex gap-2 mb-6">
-                    <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
-                    <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-                    <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
+                {/* The Image (Replaces the code window) */}
+                <div className="relative z-10 w-full h-full rounded-xl overflow-hidden border border-sanctum-300/10">
+                  <img
+                    src={headshot}
+                    alt="Sogo Ayenigba"
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100"
+                  />
+                  {/* Subtle scanline overlay for tech feel */}
+                  <div className="absolute inset-0 bg-[url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAADCAYAAABS3WWgAAAAD0lEQVQYV2NkYGBgYLC3vwcABW4BR6a0n54AAAAASUVORK5CYII=')] opacity-10 mix-blend-overlay pointer-events-none"></div>
                 </div>
 
-                {/* The "Code" */}
-                <div className="space-y-4 font-mono text-sm md:text-base text-sanctum-300">
-                    <p><span className="text-purple-400">class</span> <span className="text-yellow-400">Architect</span> <span className="text-purple-400">extends</span> <span className="text-blue-400">Builder</span> {'{'}</p>
-                    <div className="pl-6 space-y-2 border-l border-sanctum-300/10">
-                      <p>name = <span className="text-green-400">"Sogo Ayenigba"</span>;</p>
-                      <p>stack = [<span className="text-green-400">"React"</span>, <span className="text-green-400">"Go"</span>, <span className="text-green-400">"AI"</span>];</p>
-                      <p>mission = <span className="text-green-400">"Empowerment"</span>;</p>
-                    </div>
-                    <p>{'}'}</p>
-
-                    <div className="mt-8 p-4 bg-sanctum-900/50 rounded border border-sanctum-300/5">
-                        <p className="text-xs text-gray-500 uppercase tracking-widest mb-1">// Latest Commit</p>
-                        <p className="text-cyan-400 truncate">feat: integrating gemini-2.5-flash...</p>
-                    </div>
-                </div>
             </div>
         </motion.div>
 

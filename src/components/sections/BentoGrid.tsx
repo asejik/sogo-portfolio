@@ -37,27 +37,25 @@ const BentoGrid = () => {
 
           {/* TILE 1: Main Bio (Large) */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            // ... animation props ...
             className="md:col-span-2 row-span-2 bg-sanctum-800 rounded-2xl border border-sanctum-300/10 p-8 flex flex-col justify-between group hover:border-gold-500/30 transition-colors"
           >
             <div>
               <div className="w-10 h-10 rounded-full bg-gold-500/10 flex items-center justify-center mb-6 text-gold-500">
                 <Globe size={20} />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4">The Mission</h3>
+              <h3 className="text-2xl font-bold text-white mb-4">The Engineering Mindset</h3>
               <p className="text-sanctum-300 leading-relaxed text-lg">
-                My goal is simple: <strong className="text-white">Impart Knowledge</strong>. Whether it's through building AI-powered tools for the church, optimizing systems for clients, or mentoring the next generation of engineers, I build for impact.
+                My background isn’t in traditional CS; it’s in <strong className="text-white">Civil Engineering</strong> and Data Analysis. I approach software with a structural mindset—focusing on stability, logic, and user needs first.
               </p>
               <p className="text-sanctum-300 mt-4">
-                Currently bridging the gap between <span className="text-cyan-400">Civil Engineering logic</span> and <span className="text-cyan-400">Software Architecture</span>.
+                I specialize in <span className="text-cyan-400">AI-Augmented Development</span>. By orchestrating tools like Gemini, React, and n8n, I bypass typical coding bottlenecks to deliver high-performance applications rapidly.
               </p>
             </div>
             <div className="mt-8 flex gap-3 flex-wrap">
-               <span className="px-3 py-1 rounded-full bg-sanctum-900 border border-sanctum-300/10 text-xs font-mono text-cyan-400">#Builder</span>
-               <span className="px-3 py-1 rounded-full bg-sanctum-900 border border-sanctum-300/10 text-xs font-mono text-cyan-400">#Mentor</span>
-               <span className="px-3 py-1 rounded-full bg-sanctum-900 border border-sanctum-300/10 text-xs font-mono text-cyan-400">#Christian</span>
+               <span className="px-3 py-1 rounded-full bg-sanctum-900 border border-sanctum-300/10 text-xs font-mono text-cyan-400">#AI_Engineer</span>
+               <span className="px-3 py-1 rounded-full bg-sanctum-900 border border-sanctum-300/10 text-xs font-mono text-cyan-400">#Automation</span>
+               <span className="px-3 py-1 rounded-full bg-sanctum-900 border border-sanctum-300/10 text-xs font-mono text-cyan-400">#RapidPrototyping</span>
             </div>
           </motion.div>
 
@@ -113,10 +111,7 @@ const BentoGrid = () => {
 
           {/* TILE 4: "Now Building" (Status) */}
           <motion.div
-             initial={{ opacity: 0, y: 20 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true }}
-             transition={{ delay: 0.3 }}
+             // ... animation props ...
              className="md:col-span-3 bg-sanctum-800 rounded-2xl border border-sanctum-300/10 p-6 flex flex-col md:flex-row items-center justify-between gap-6 hover:border-gold-500/30 transition-colors"
           >
              <div className="flex items-center gap-4">
@@ -124,20 +119,17 @@ const BentoGrid = () => {
                    <Cpu size={24} />
                 </div>
                 <div>
-                   <p className="text-xs text-sanctum-300 uppercase tracking-widest">Currently Building</p>
-                   <h3 className="text-xl font-bold text-white">Scripture Copilot (AI/RAG)</h3>
+                   <p className="text-xs text-sanctum-300 uppercase tracking-widest">Current Status</p>
+                   <h3 className="text-xl font-bold text-white">Refining craft at Learn2Earn Program</h3>
                 </div>
              </div>
 
              <div className="flex items-center gap-6">
-                <div className="hidden md:flex -space-x-2">
-                   {/* Stack Icons (Placeholders) */}
-                   <div className="w-8 h-8 rounded-full bg-sanctum-700 border-2 border-sanctum-800 flex items-center justify-center text-[10px] text-white">R</div>
-                   <div className="w-8 h-8 rounded-full bg-sanctum-700 border-2 border-sanctum-800 flex items-center justify-center text-[10px] text-white">TS</div>
-                   <div className="w-8 h-8 rounded-full bg-sanctum-700 border-2 border-sanctum-800 flex items-center justify-center text-[10px] text-white">AI</div>
-                </div>
-                <a href="#projects" className="flex items-center gap-2 text-gold-500 font-bold text-sm hover:underline">
-                   View Progress <ArrowUpRight size={16} />
+                <p className="text-sm text-sanctum-300 hidden md:block">
+                  Open for select freelance projects & collaborations.
+                </p>
+                <a href="#contact" className="flex items-center gap-2 text-gold-500 font-bold text-sm hover:underline">
+                   Hire Me <ArrowUpRight size={16} />
                 </a>
              </div>
           </motion.div>
