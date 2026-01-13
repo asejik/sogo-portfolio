@@ -1,73 +1,101 @@
-# React + TypeScript + Vite
+# Sogo Ayenigba | Digital Identity Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Project Banner](public/favicon.svg)
 
-Currently, two official plugins are available:
+**A high-performance "Proof of Work" portfolio built with React 19, TypeScript, and Tailwind CSS v4.**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This Single Page Application (SPA) serves as the digital home for Sogo Ayenigba, an AI Application Developer and Automation Specialist. It is designed to demonstrate technical competence in modern frontend architecture, UI/UX design, and component modularity immediately upon load.
 
-## React Compiler
+🔗 **Live Demo:** [www.sogoayenigba.site](https://www.sogoayenigba.site)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## ⚡ Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* **Core:** [React 19](https://react.dev/) + [Vite](https://vitejs.dev/) (TypeScript)
+* **Styling:** [Tailwind CSS v4](https://tailwindcss.com/) (CSS-first configuration)
+* **Animation:** [Framer Motion](https://www.framer.com/motion/)
+* **Icons:** [Lucide React](https://lucide.dev/)
+* **Deployment:** Vercel (CI/CD)
+* **Design System:** "Architect's Sanctum" (Deep Slate, Gold, Cyan)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🚀 Key Features
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+* **Holographic Hero Section:** A visually distinct introduction featuring a "Digital Twin" headshot effect using CSS blends and motion.
+* **Bento Grid Identity:** A modular, responsive grid layout that visualizes the developer's multi-faceted identity (Builder, Mentor, Engineer) at a glance.
+* **Infinite Tech Ticker:** A performant CSS-only infinite marquee displaying the complete technical skill set.
+* **Glassmorphic UI:** Extensive use of backdrop blurs, subtle borders, and glow effects to create a modern, premium feel.
+* **Component-Based Architecture:** Clean separation of concerns with reusable UI atoms and distinct section components.
+* **The Garden:** A lightweight, built-in content system for sharing technical notes and engineering thoughts.
+
+---
+
+## 📂 Project Structure
+
+```text
+src/
+├── assets/          # Static images (headshot, etc.)
+├── components/
+│   ├── layout/      # Navbar, Footer
+│   ├── sections/    # Hero, BentoGrid, Projects, Garden, Contact
+│   └── ui/          # ScrollToTop, Buttons
+├── data/            # Structured content (Projects, Articles)
+├── styles/          # Tailwind v4 CSS entry point
+└── App.tsx          # Main application composition
+
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🛠️ Getting Started
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+To run this project locally:
+
+1. **Clone the repository**
+```bash
+git clone [https://github.com/asejik/sogo-portfolio.git](https://github.com/asejik/sogo-portfolio.git)
+cd sogo-portfolio
+
 ```
+
+
+2. **Install dependencies**
+```bash
+npm install
+
+```
+
+
+3. **Run the development server**
+```bash
+npm run dev
+
+```
+
+
+4. Open [http://localhost:5173](https://www.google.com/search?q=http://localhost:5173) to view it in the browser.
+
+---
+
+## 🎨 Theme Configuration
+
+This project utilizes **Tailwind CSS v4**, which moves configuration from JavaScript to CSS variables. The custom "Architect's Sanctum" palette is defined in `src/index.css`:
+
+* **Sanctum (Backgrounds):** `#020617` (Slate 950)
+* **Gold (Brand/Value):** `#f59e0b` (Amber 500)
+* **Cyan (Tech/AI):** `#22d3ee` (Cyan 400)
+
+---
+
+## 📬 Contact
+
+* **Portfolio:** [www.sogoayenigba.site](https://www.google.com/url?sa=E&source=gmail&q=https://www.sogoayenigba.site)
+* **GitHub:** [@asejik](https://github.com/asejik)
+* **X (Twitter):** [@ayenigbasogo](https://x.com/ayenigbasogo)
+* **Email:** hello@sogoayenigba.site
+
+---
+
+© 2025-2026 Sogo Ayenigba. Built with 💙 and React.
