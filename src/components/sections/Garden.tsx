@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion';
 import { ArrowRight, BookOpen } from 'lucide-react';
 import { articles } from '../../data/articles';
+import { Link } from 'react-router-dom';
 
 const Garden = () => {
   return (
@@ -20,14 +20,10 @@ const Garden = () => {
 
         {/* Articles List */}
         <div className="space-y-6">
-          {articles.map((article, index) => (
-            <motion.a
+          {articles.map((article) => (
+            <Link
+              to={`/garden/${article.slug}`} // Use the slug!
               key={article.id}
-              href={article.link}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
               className="block group bg-sanctum-800/50 hover:bg-sanctum-800 border border-sanctum-300/10 hover:border-gold-500/30 rounded-2xl p-6 transition-all"
             >
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -49,7 +45,7 @@ const Garden = () => {
                   Read <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
-            </motion.a>
+            </Link>
           ))}
         </div>
 
