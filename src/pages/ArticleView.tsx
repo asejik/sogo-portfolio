@@ -2,7 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw'; // Import the raw HTML parser
 import { ArrowLeft, Calendar, Clock } from 'lucide-react';
-import { articles } from '../data/articles';
+import { getArticles } from '../utils/articleLoader';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 
@@ -32,6 +32,8 @@ const preprocessContent = (content: string) => {
 
 const ArticleView = () => {
   const { slug } = useParams();
+  // Call the function to get fresh data
+  const articles = getArticles();
   const article = articles.find((a) => a.slug === slug);
 
   if (!article) {
