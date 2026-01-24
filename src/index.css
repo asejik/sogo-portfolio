@@ -1,19 +1,10 @@
 @import "tailwindcss";
 
-@theme {
-  /* Add these inside the @theme { ... } block */
+:root {
+  /* Add these inside the :root { ... } block */
   --animate-marquee: marquee 25s linear infinite;
   --animate-marquee-reverse: marquee-reverse 25s linear infinite;
 
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-100%); }
-  }
-
-  @keyframes marquee-reverse {
-    from { transform: translateX(-100%); }
-    to { transform: translateX(0); }
-  }
   /* The Deep Void (Backgrounds) */
   --color-sanctum-900: #020617; /* Slate-950 */
   --color-sanctum-800: #0f172a; /* Slate-900 */
@@ -36,7 +27,34 @@
   --animate-spin-slow: spin 12s linear infinite;
 }
 
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+@keyframes marquee-reverse {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
 /* Base Styles */
 body {
-  @apply bg-sanctum-900 text-sanctum-300 antialiased font-sans;
+  background-color: var(--color-sanctum-900);
+  color: var(--color-sanctum-300);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: var(--font-sans);
+}
+
+.prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem; /* Rounded corners */
+  margin: 2rem auto;     /* Vertical spacing */
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+.prose iframe {
+  width: 100%;
+  border-radius: 0.5rem;
 }

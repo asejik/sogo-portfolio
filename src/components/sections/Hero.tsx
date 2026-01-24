@@ -88,7 +88,8 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.4 }}
-          className="relative hidden md:flex justify-center"
+          /* CHANGED: Removed 'hidden' and added 'flex' and 'mt-12' for mobile spacing */
+          className="relative flex justify-center mt-12 md:mt-0"
         >
             {/* The Container (Keeps the glow and rotation) */}
             <div className="relative w-full max-w-md aspect-square bg-sanctum-800/50 rounded-2xl border border-sanctum-300/10 shadow-2xl p-3 rotate-3 hover:rotate-0 transition-transform duration-500 group backdrop-blur-sm">
@@ -97,7 +98,7 @@ const Hero: React.FC = () => {
                 <div className="absolute -top-10 -right-10 w-32 h-32 bg-gold-500/10 rounded-full blur-3xl group-hover:bg-gold-500/20 transition-all z-0"></div>
                 <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-cyan-500/10 rounded-full blur-3xl group-hover:bg-cyan-500/20 transition-all z-0"></div>
 
-                {/* The Image (Replaces the code window) */}
+                {/* The Image */}
                 <div className="relative z-10 w-full h-full rounded-xl overflow-hidden border border-sanctum-300/10">
                   <img
                     src={headshot}
