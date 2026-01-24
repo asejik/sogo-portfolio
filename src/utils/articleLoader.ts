@@ -1,4 +1,4 @@
-import matter from 'gray-matter';
+import fm from 'front-matter';
 
 export interface Article {
   slug: string;
@@ -6,26 +6,40 @@ export interface Article {
   date: string;
   readTime: string;
   content: string;
+  excerpt?: string; // Added this type definition
+}
+
+interface ArticleAttributes {
+  slug?: string;
+  title?: string;
+  date?: string;
+  readTime?: string;
+  excerpt?: string;
 }
 
 export const getArticles = (): Article[] => {
-  // 1. Load all .md files from the /src/articles folder
-  const modules = import.meta.glob('../articles/*.md', { as: 'raw', eager: true });
+  // FIXED: Use "query: '?raw'" and "import: 'default'" instead of "as: 'raw'"
+  const modules = import.meta.glob('../articles/*.md', {
+    query: '?raw',
+    import: 'default',
+    eager: true
+  });
 
-  // 2. Parse them into objects
   const articles = Object.keys(modules).map((path) => {
+    // The module is now guaranteed to be the raw string content
     const rawContent = modules[path] as string;
-    const { data, content } = matter(rawContent);
+
+    const { attributes, body } = fm<ArticleAttributes>(rawContent);
 
     return {
-      slug: data.slug || path.split('/').pop()?.replace('.md', '') || 'unknown',
-      title: data.title || 'Untitled',
-      date: data.date || 'Unknown Date',
-      readTime: data.readTime || '5 min read',
-      content: content,
+      slug: attributes.slug || path.split('/').pop()?.replace('.md', '') || 'unknown',
+      title: attributes.title || 'Untitled',
+      date: attributes.date || 'Unknown Date',
+      readTime: attributes.readTime || '5 min read',
+      content: body,
+      excerpt: attributes.excerpt
     };
   });
 
-  // 3. Sort by Date (Newest First)
   return articles.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 };
