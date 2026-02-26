@@ -5,14 +5,13 @@ import { Menu, X, Code2 } from 'lucide-react';
 const navLinks = [
   { name: 'About', href: '#about' },
   { name: 'Projects', href: '#projects' },
-  { name: 'Garden', href: '#garden' }, // We will build this section or link to external later
+  { name: 'Garden', href: '#garden' },
 ];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -24,7 +23,9 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-sanctum-900/80 backdrop-blur-md border-b border-sanctum-300/5 py-4' : 'bg-transparent py-6'
+        scrolled || isOpen
+          ? 'bg-sanctum-900 border-b border-sanctum-300/10 py-4 shadow-lg'
+          : 'bg-transparent py-6'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
@@ -74,7 +75,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-sanctum-900 border-b border-sanctum-300/10 overflow-hidden"
+            className="md:hidden absolute top-full left-0 right-0 bg-sanctum-900 border-b border-sanctum-300/10 shadow-2xl overflow-hidden"
           >
             <div className="flex flex-col p-6 gap-4">
               {navLinks.map((link) => (
@@ -82,7 +83,7 @@ const Navbar = () => {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="text-lg font-medium text-sanctum-300 hover:text-gold-500"
+                  className="text-lg font-medium text-white hover:text-gold-500 transition-colors"
                 >
                   {link.name}
                 </a>

@@ -1,23 +1,20 @@
 @import "tailwindcss";
 
-:root {
-  /* Add these inside the :root { ... } block */
-  --animate-marquee: marquee 25s linear infinite;
-  --animate-marquee-reverse: marquee-reverse 25s linear infinite;
-
+/* ✅ Tailwind v4 reads THIS block to generate utility classes */
+@theme {
   /* The Deep Void (Backgrounds) */
-  --color-sanctum-900: #020617; /* Slate-950 */
-  --color-sanctum-800: #0f172a; /* Slate-900 */
-  --color-sanctum-300: #cbd5e1; /* Slate-300 */
+  --color-sanctum-900: #020617;
+  --color-sanctum-800: #0f172a;
+  --color-sanctum-300: #cbd5e1;
 
   /* The Royal Foundation (Accents) */
-  --color-gold-400: #fbbf24; /* Amber-400 */
-  --color-gold-500: #f59e0b; /* Amber-500 */
-  --color-gold-600: #d97706; /* Amber-600 */
+  --color-gold-400: #fbbf24;
+  --color-gold-500: #f59e0b;
+  --color-gold-600: #d97706;
 
   /* The Tech/AI (Highlights) */
-  --color-cyan-400: #22d3ee; /* Electric Blue */
-  --color-cyan-900: #164e63; /* Dark Cyan */
+  --color-cyan-400: #22d3ee;
+  --color-cyan-900: #164e63;
 
   /* Typography */
   --font-sans: 'Inter', sans-serif;
@@ -25,8 +22,11 @@
 
   /* Custom Animations */
   --animate-spin-slow: spin 12s linear infinite;
+  --animate-marquee: marquee 25s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 25s linear infinite;
 }
 
+/* ✅ Keep :root only for things NOT related to Tailwind utilities */
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-100%); }
@@ -49,8 +49,8 @@ body {
 .prose img {
   max-width: 100%;
   height: auto;
-  border-radius: 0.5rem; /* Rounded corners */
-  margin: 2rem auto;     /* Vertical spacing */
+  border-radius: 0.5rem;
+  margin: 2rem auto;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
 }
 

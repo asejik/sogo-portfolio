@@ -4,7 +4,7 @@ Last Updated: 2026-02-26
 ## 1. Tech Stack & Architecture
 - **Core:** React (Vite), TypeScript.
 - **Routing:** React Router Dom.
-- **Styling:** Tailwind CSS, Framer Motion.
+- **Styling:** Tailwind CSS v4, Framer Motion.
 - **Content Engine:** Local Markdown files (`src/articles/*.md`) parsed with `front-matter`, `react-markdown`, and `rehype-raw`.
 - **Architecture Pattern:** Client-Side Single Page Application (SPA) with a file-based Content Collection system.
 
@@ -13,21 +13,24 @@ Last Updated: 2026-02-26
 - **Strict Rule:** App must always be wrapped in `<BrowserRouter>`.
 - **Strict Rule:** Mobile-First Design. Always verify `hidden` vs `flex` behavior on small screens.
 - **Strict Rule:** Blog posts must reside in `src/articles/` as `.md` files containing frontmatter (`title`, `slug`, `date`, `readTime`).
+- **Strict Rule (Tailwind v4):** All custom theme tokens (colors, fonts, animations) MUST be defined inside the `@theme` block in `src/index.css`, not `:root`.
 
-## 3. Database Schema & Auth (If applicable)
+## 3. Database Schema & Auth
 - **Database:** None (File-System Based via Markdown).
-- **Backend API:** Google Apps Script (`doPost` Web App) used for form data collection and automated email dispatch.
+- **Backend API:** Google Apps Script (`doPost` Web App) used for AI Unlocked form data collection and automated email dispatch.
 - **Auth Strategy:** None (Public Portfolio).
 
 ## 4. File Map
 - `src/main.tsx`: App entry point and Router provider.
 - `src/App.tsx`: Main application layout and primary Route definitions.
+- `src/index.css`: Tailwind v4 theme configuration (`@theme`).
 - `src/components/sections/Hero.tsx`: Landing section handling intro and headshot.
 - `src/pages/ArticleView.tsx`: Dynamic renderer for individual markdown files.
 - `src/components/sections/Garden.tsx`: Blog list interface utilizing `articleLoader`.
-- `src/pages/AIUnlocked.tsx`: Registration landing page for the AI Masterclass. Features glassmorphism UI, inline CSS dropdown fixes, and a `mode: 'no-cors'` fetch pipeline to Google Sheets.
+- `src/pages/AIUnlocked.tsx`: Registration landing page for the AI Masterclass. Features glassmorphism UI and a `mode: 'no-cors'` fetch pipeline to Google Sheets.
 - `src/utils/articleLoader.ts`: Scans and parses metadata from `src/articles/*.md` using `front-matter`.
 - `src/types/front-matter.d.ts`: Critical custom type definitions for the browser-safe parser.
+- `.vscode/settings.json`: Suppresses false-positive CSS lint warnings for the `@theme` rule.
 
 ## 5. Roadmap & Next Steps
 - [x] 2026-01-23: Fix critical crash by wrapping App in `BrowserRouter`.
@@ -38,6 +41,7 @@ Last Updated: 2026-02-26
 - [x] 2026-02-26: Build AI Unlocked masterclass registration page with glassmorphism UI, inline CSS dropdown fixes, and success state routing.
 - [x] 2026-02-26: Integrate Google Apps Script backend with `mode: 'no-cors'` fetch request to bypass browser security blocks.
 - [x] 2026-02-26: Polish success state with global "Back to Home" routing and a "Register Another Person" form reset function.
+- [x] 2026-02-26: Fix Tailwind v4 custom color resolution by migrating variables from `:root` to `@theme` in `index.css` and secure mobile navbar opacity.
 - [ ] Add "Tags" support to the Garden section (e.g., filter by #React, #Life).
 - [ ] Add SEO meta tags (Helmet) for individual articles.
 
