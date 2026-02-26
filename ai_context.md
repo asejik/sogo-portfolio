@@ -16,6 +16,7 @@ Last Updated: 2026-02-26
 
 ## 3. Database Schema & Auth (If applicable)
 - **Database:** None (File-System Based via Markdown).
+- **Backend API:** Google Apps Script (`doPost` Web App) used for form data collection and automated email dispatch.
 - **Auth Strategy:** None (Public Portfolio).
 
 ## 4. File Map
@@ -24,7 +25,7 @@ Last Updated: 2026-02-26
 - `src/components/sections/Hero.tsx`: Landing section handling intro and headshot.
 - `src/pages/ArticleView.tsx`: Dynamic renderer for individual markdown files.
 - `src/components/sections/Garden.tsx`: Blog list interface utilizing `articleLoader`.
-- `src/pages/AIUnlocked.tsx`: Registration landing page for the AI Masterclass featuring glassmorphism UI and form state management.
+- `src/pages/AIUnlocked.tsx`: Registration landing page for the AI Masterclass. Features glassmorphism UI, inline CSS dropdown fixes, and a `mode: 'no-cors'` fetch pipeline to Google Sheets.
 - `src/utils/articleLoader.ts`: Scans and parses metadata from `src/articles/*.md` using `front-matter`.
 - `src/types/front-matter.d.ts`: Critical custom type definitions for the browser-safe parser.
 
@@ -35,6 +36,8 @@ Last Updated: 2026-02-26
 - [x] 2026-01-24: Migrate to file-based content system (`front-matter`).
 - [x] 2026-02-23: Establish append-only strict documentation protocol.
 - [x] 2026-02-26: Build AI Unlocked masterclass registration page with glassmorphism UI, inline CSS dropdown fixes, and success state routing.
+- [x] 2026-02-26: Integrate Google Apps Script backend with `mode: 'no-cors'` fetch request to bypass browser security blocks.
+- [x] 2026-02-26: Polish success state with global "Back to Home" routing and a "Register Another Person" form reset function.
 - [ ] Add "Tags" support to the Garden section (e.g., filter by #React, #Life).
 - [ ] Add SEO meta tags (Helmet) for individual articles.
 
