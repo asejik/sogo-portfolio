@@ -9,6 +9,7 @@ import Contact from './components/sections/Contact';
 import Footer from './components/layout/Footer';
 import ScrollToTop from './components/ui/ScrollToTop';
 import ArticleView from './pages/ArticleView';
+import AIUnlocked from './pages/AIUnlocked'; // New Import
 
 // The Main Landing Page Component
 const Home = () => (
@@ -34,6 +35,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/garden/:slug" element={<ArticleView />} />
+          {/* New Masterclass Route */}
+          <Route path="/ai-unlocked" element={<AIUnlocked />} />
         </Routes>
       </div>
     </Router>

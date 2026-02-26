@@ -1,5 +1,5 @@
 # Sogo Portfolio Website & Status
-Last Updated: 2026-02-23
+Last Updated: 2026-02-26
 
 ## 1. Tech Stack & Architecture
 - **Core:** React (Vite), TypeScript.
@@ -9,7 +9,7 @@ Last Updated: 2026-02-23
 - **Architecture Pattern:** Client-Side Single Page Application (SPA) with a file-based Content Collection system.
 
 ## 2. Key Features & Rules
-- **Completed Features:** Markdown blog engine with YouTube and Image support; mobile-responsive holographic Hero section.
+- **Completed Features:** Markdown blog engine with YouTube and Image support; mobile-responsive holographic Hero section; AI Unlocked Masterclass registration landing page.
 - **Strict Rule:** App must always be wrapped in `<BrowserRouter>`.
 - **Strict Rule:** Mobile-First Design. Always verify `hidden` vs `flex` behavior on small screens.
 - **Strict Rule:** Blog posts must reside in `src/articles/` as `.md` files containing frontmatter (`title`, `slug`, `date`, `readTime`).
@@ -20,9 +20,11 @@ Last Updated: 2026-02-23
 
 ## 4. File Map
 - `src/main.tsx`: App entry point and Router provider.
+- `src/App.tsx`: Main application layout and primary Route definitions.
 - `src/components/sections/Hero.tsx`: Landing section handling intro and headshot.
 - `src/pages/ArticleView.tsx`: Dynamic renderer for individual markdown files.
 - `src/components/sections/Garden.tsx`: Blog list interface utilizing `articleLoader`.
+- `src/pages/AIUnlocked.tsx`: Registration landing page for the AI Masterclass featuring glassmorphism UI and form state management.
 - `src/utils/articleLoader.ts`: Scans and parses metadata from `src/articles/*.md` using `front-matter`.
 - `src/types/front-matter.d.ts`: Critical custom type definitions for the browser-safe parser.
 
@@ -32,8 +34,10 @@ Last Updated: 2026-02-23
 - [x] 2026-01-24: Fix Mobile Hero image visibility.
 - [x] 2026-01-24: Migrate to file-based content system (`front-matter`).
 - [x] 2026-02-23: Establish append-only strict documentation protocol.
+- [x] 2026-02-26: Build AI Unlocked masterclass registration page with glassmorphism UI, inline CSS dropdown fixes, and success state routing.
 - [ ] Add "Tags" support to the Garden section (e.g., filter by #React, #Life).
 - [ ] Add SEO meta tags (Helmet) for individual articles.
 
 ## 6. Known Issues & Technical Debt
 - **Debt:** Ensure `slug` in frontmatter strictly matches the filename for consistency, though this is not currently enforced by the codebase.
+- **Debt:** The OS-level dropdown styling required inline CSS overrides on `<option>` tags to maintain dark mode visibility.
