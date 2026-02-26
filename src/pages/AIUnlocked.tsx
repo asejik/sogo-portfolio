@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowLeft, UserPlus, Calendar } from 'lucide-react';
+import { UserPlus, Calendar } from 'lucide-react';
 import flyerGraphic from '../assets/ai-masterclass-flyer.jpeg'; // Ensure this matches your file extension
+import SEO from '../components/ui/SEO'; // NEW IMPORT
 
 const AIUnlocked = () => {
   const [formData, setFormData] = useState({
@@ -61,18 +61,19 @@ const AIUnlocked = () => {
   const calendarLink = "https://calendar.google.com/calendar/render?action=TEMPLATE&dates=20260314T170000Z%2F20260314T180000Z&details=The%20Everyday%20Creator%27s%20Masterclass.%20Check%20your%20email%20for%20the%20event%20link.&location=Online&text=AI%20Unlocked%3A%20The%20Everyday%20Creator%27s%20Masterclass";
 
   return (
-    <div className="relative min-h-screen bg-sanctum-900 text-white flex items-center justify-center p-4 lg:p-12">
+    // CHANGED: Added pt-28 and lg:pt-32 to push content below the fixed global Navbar
+    <div className="relative min-h-screen bg-sanctum-900 text-white flex items-center justify-center px-4 pt-28 pb-12 lg:px-12 lg:pt-32">
 
-      {/* Global Back to Home Button */}
-      <Link
-        to="/"
-        className="absolute top-6 left-6 flex items-center gap-2 px-4 py-2 rounded-lg bg-sanctum-800/50 hover:bg-sanctum-800 border border-white/5 text-sanctum-300 hover:text-cyan-400 transition-all z-50 backdrop-blur-md"
-      >
-        <ArrowLeft size={18} />
-        <span className="hidden md:inline font-medium text-sm">Back to Home</span>
-      </Link>
+      {/* REMOVED the absolute "Back to Home" button since Navbar handles it */}
 
-      <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-12 lg:mt-0">
+      {/* NEW: Dynamic Browser Tab SEO */}
+      <SEO
+        title="AI Unlocked: Masterclass"
+        description="Join the Everyday Creator's Masterclass and discover the possibilities of AI. Zero coding required."
+        url="/ai-unlocked"
+      />
+
+      <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
         {/* Left Column: Flyer & Info */}
         <div className="relative flex justify-center w-full h-auto">

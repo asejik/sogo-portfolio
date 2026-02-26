@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import {
   MapPin,
   Globe,
@@ -37,7 +38,10 @@ const BentoGrid = () => {
 
           {/* TILE 1: Main Bio (Large) */}
           <motion.div
-            // ... animation props ...
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.0 }}
             className="md:col-span-2 row-span-2 bg-sanctum-800 rounded-2xl border border-sanctum-300/10 p-8 flex flex-col justify-between group hover:border-gold-500/30 transition-colors"
           >
             <div>
@@ -46,92 +50,102 @@ const BentoGrid = () => {
               </div>
               <h3 className="text-2xl font-bold text-white mb-4">The Engineering Mindset</h3>
               <p className="text-sanctum-300 leading-relaxed text-lg">
-                My background isn’t in traditional CS; it’s in <strong className="text-white">Civil Engineering</strong> and Data Analysis. I approach software with a structural mindset—focusing on stability, logic, and user needs first.
+                My background isn't in traditional CS; it's in <strong className="text-white">Civil Engineering</strong> and Data Analysis. I approach software with a structural mindset—focusing on stability, logic, and user needs first.
               </p>
               <p className="text-sanctum-300 mt-4">
                 I specialize in <span className="text-cyan-400">AI-Augmented Development</span>. By orchestrating tools like Gemini, React, and n8n, I bypass typical coding bottlenecks to deliver high-performance applications rapidly.
               </p>
             </div>
             <div className="mt-8 flex gap-3 flex-wrap">
-               <span className="px-3 py-1 rounded-full bg-sanctum-900 border border-sanctum-300/10 text-xs font-mono text-cyan-400">#AI_Engineer</span>
-               <span className="px-3 py-1 rounded-full bg-sanctum-900 border border-sanctum-300/10 text-xs font-mono text-cyan-400">#Automation</span>
-               <span className="px-3 py-1 rounded-full bg-sanctum-900 border border-sanctum-300/10 text-xs font-mono text-cyan-400">#RapidPrototyping</span>
+              <span className="px-3 py-1 rounded-full bg-sanctum-900 border border-sanctum-300/10 text-xs font-mono text-cyan-400">#AI_Engineer</span>
+              <span className="px-3 py-1 rounded-full bg-sanctum-900 border border-sanctum-300/10 text-xs font-mono text-cyan-400">#Automation</span>
+              <span className="px-3 py-1 rounded-full bg-sanctum-900 border border-sanctum-300/10 text-xs font-mono text-cyan-400">#RapidPrototyping</span>
             </div>
           </motion.div>
 
           {/* TILE 2: Map / Location */}
           <motion.div
-             initial={{ opacity: 0, y: 20 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true }}
-             transition={{ delay: 0.1 }}
-             className="bg-sanctum-800 rounded-2xl border border-sanctum-300/10 p-6 relative overflow-hidden group hover:border-cyan-400/30 transition-colors"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="bg-sanctum-800 rounded-2xl border border-sanctum-300/10 p-6 relative overflow-hidden group hover:border-cyan-400/30 transition-colors"
           >
-             {/* Abstract Map Background */}
-             <div className="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity bg-gradient-to-br from-blue-900/40 to-sanctum-900/90 mix-blend-multiply" />
+            {/* Abstract Map Background */}
+            <div className="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity bg-gradient-to-br from-blue-900/40 to-sanctum-900/90 mix-blend-multiply" />
 
-             <div className="relative z-10 h-full flex flex-col justify-between">
-                <div className="self-end p-2 bg-sanctum-900/80 backdrop-blur rounded-lg border border-sanctum-300/10">
-                   <MapPin size={18} className="text-red-400" />
-                </div>
-                <div>
-                   <p className="text-xs text-sanctum-300 uppercase tracking-wider mb-1">Based in</p>
-                   <p className="text-xl font-bold text-white">Ilorin, Nigeria</p>
-                   <p className="text-xs text-cyan-400 mt-1">UTC +1</p>
-                </div>
-             </div>
+            <div className="relative z-10 h-full flex flex-col justify-between">
+              <div className="self-end p-2 bg-sanctum-900/80 backdrop-blur rounded-lg border border-sanctum-300/10">
+                <MapPin size={18} className="text-red-400" />
+              </div>
+              <div>
+                <p className="text-xs text-sanctum-300 uppercase tracking-wider mb-1">Based in</p>
+                <p className="text-xl font-bold text-white">Ilorin, Nigeria</p>
+                <p className="text-xs text-cyan-400 mt-1">UTC +1</p>
+              </div>
+            </div>
           </motion.div>
 
           {/* TILE 3: Socials / Connect */}
           <motion.div
-             initial={{ opacity: 0, y: 20 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true }}
-             transition={{ delay: 0.2 }}
-             className="bg-gold-500 rounded-2xl p-6 flex flex-col justify-center items-center text-sanctum-900 text-center group relative overflow-hidden"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="bg-gold-500 rounded-2xl p-6 flex flex-col justify-center items-center text-sanctum-900 text-center group relative overflow-hidden"
           >
-             <div className="relative z-10 w-full">
-                <h3 className="text-xl font-bold mb-4">Let's Connect</h3>
-                <div className="flex flex-wrap gap-3 justify-center">
-                   <a href="https://github.com/asejik" target="_blank" rel="noreferrer" title="GitHub" className="p-2 bg-sanctum-900/10 hover:bg-sanctum-900/20 rounded-full transition-colors"><Github size={20} /></a>
-                   <a href="https://linkedin.com/in/sogoayenigba" target="_blank" rel="noreferrer" title="LinkedIn" className="p-2 bg-sanctum-900/10 hover:bg-sanctum-900/20 rounded-full transition-colors"><Linkedin size={20} /></a>
-                   <a href="https://x.com/sogoayenigba" target="_blank" rel="noreferrer" title="X (Twitter)" className="p-2 bg-sanctum-900/10 hover:bg-sanctum-900/20 rounded-full transition-colors"><Twitter size={20} /></a>
-                   <a href="https://instagram.com/sogoayenigba" target="_blank" rel="noreferrer" title="Instagram" className="p-2 bg-sanctum-900/10 hover:bg-sanctum-900/20 rounded-full transition-colors"><Instagram size={20} /></a>
-                   <a href="https://facebook.com/asejik" target="_blank" rel="noreferrer" title="Facebook" className="p-2 bg-sanctum-900/10 hover:bg-sanctum-900/20 rounded-full transition-colors"><Facebook size={20} /></a>
-                </div>
-                <div className="mt-4 pt-4 border-t border-sanctum-900/10">
-                    <a href="mailto:hello@sogoayenigba.site" className="text-sm font-mono hover:underline flex items-center justify-center gap-2">
-                        <Mail size={14} /> hello@sogoayenigba.site
-                    </a>
-                </div>
-             </div>
-             {/* Hover shine effect */}
-             <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+            <div className="relative z-10 w-full">
+              <h3 className="text-xl font-bold mb-4">Let's Connect</h3>
+              <div className="flex flex-wrap gap-3 justify-center">
+                <a href="https://github.com/asejik" target="_blank" rel="noreferrer" title="GitHub" className="p-2 bg-sanctum-900/10 hover:bg-sanctum-900/20 rounded-full transition-colors"><Github size={20} /></a>
+                <a href="https://linkedin.com/in/sogoayenigba" target="_blank" rel="noreferrer" title="LinkedIn" className="p-2 bg-sanctum-900/10 hover:bg-sanctum-900/20 rounded-full transition-colors"><Linkedin size={20} /></a>
+                <a href="https://x.com/sogoayenigba" target="_blank" rel="noreferrer" title="X (Twitter)" className="p-2 bg-sanctum-900/10 hover:bg-sanctum-900/20 rounded-full transition-colors"><Twitter size={20} /></a>
+                <a href="https://instagram.com/sogoayenigba" target="_blank" rel="noreferrer" title="Instagram" className="p-2 bg-sanctum-900/10 hover:bg-sanctum-900/20 rounded-full transition-colors"><Instagram size={20} /></a>
+                <a href="https://facebook.com/asejik" target="_blank" rel="noreferrer" title="Facebook" className="p-2 bg-sanctum-900/10 hover:bg-sanctum-900/20 rounded-full transition-colors"><Facebook size={20} /></a>
+              </div>
+              <div className="mt-4 pt-4 border-t border-sanctum-900/10">
+                <Link
+                  to="/contact"
+                  className="w-full flex items-center justify-center gap-3 p-4 border-2 border-sanctum-800/50 rounded-lg text-sanctum-900 font-mono text-sm hover:bg-gold-600 transition-colors"
+                >
+                  <Mail size={16} />
+                  hello@sogoayenigba.site
+                </Link>
+              </div>
+            </div>
+            {/* Hover shine effect */}
+            <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
           </motion.div>
 
           {/* TILE 4: "Now Building" (Status) */}
           <motion.div
-             // ... animation props ...
-             className="md:col-span-3 bg-sanctum-800 rounded-2xl border border-sanctum-300/10 p-6 flex flex-col md:flex-row items-center justify-between gap-6 hover:border-gold-500/30 transition-colors"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="md:col-span-3 bg-sanctum-800 rounded-2xl border border-sanctum-300/10 p-6 flex flex-col md:flex-row items-center justify-between gap-6 hover:border-gold-500/30 transition-colors"
           >
-             <div className="flex items-center gap-4">
-                <div className="p-3 bg-cyan-900/30 rounded-lg text-cyan-400">
-                   <Cpu size={24} />
-                </div>
-                <div>
-                   <p className="text-xs text-sanctum-300 uppercase tracking-widest">Current Status</p>
-                   <h3 className="text-xl font-bold text-white">Refining craft at Learn2Earn Program</h3>
-                </div>
-             </div>
+            <div className="flex items-center gap-4">
+              <div className="p-3 bg-cyan-900/30 rounded-lg text-cyan-400">
+                <Cpu size={24} />
+              </div>
+              <div>
+                <p className="text-xs text-sanctum-300 uppercase tracking-widest">Current Status</p>
+                <h3 className="text-xl font-bold text-white">Refining craft at Learn2Earn Fellowship</h3>
+              </div>
+            </div>
 
-             <div className="flex items-center gap-6">
-                <p className="text-sm text-sanctum-300 hidden md:block">
-                  Open for select freelance projects & collaborations.
-                </p>
-                <a href="#contact" className="flex items-center gap-2 text-gold-500 font-bold text-sm hover:underline">
-                   Hire Me <ArrowUpRight size={16} />
-                </a>
-             </div>
+            <div className="flex items-center gap-6">
+              <p className="text-sm text-sanctum-300 hidden md:block">
+                Open for select freelance projects & collaborations.
+              </p>
+              <Link
+                to="/contact"
+                className="px-6 py-2 border-2 border-sanctum-900 rounded-lg text-sm font-bold hover:bg-sanctum-900 hover:text-gold-500 transition-all flex items-center gap-2"
+              >
+                Hire Me <ArrowUpRight size={16} />
+              </Link>
+            </div>
           </motion.div>
 
         </div>

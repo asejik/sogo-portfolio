@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Mail, MessageSquare } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Contact = () => {
   return (
@@ -22,12 +23,10 @@ const Contact = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
-            <a
-              href="mailto:hello@sogoayenigba.site"
-              className="flex items-center justify-center gap-2 px-8 py-4 bg-gold-500 hover:bg-gold-600 text-sanctum-900 font-bold rounded-xl transition-transform hover:-translate-y-1"
-            >
-              <Mail size={20} /> Send an Email
-            </a>
+            <Link to="/contact" className="px-8 py-4 bg-gold-500 hover:bg-gold-400 text-sanctum-900 font-bold rounded-xl transition-all transform hover:-translate-y-1 shadow-lg flex items-center gap-2">
+            <Mail size={20} />
+            Contact Us
+          </Link>
             <a
               href="https://x.com/sogoayenigba"
               target="_blank"
