@@ -4,6 +4,7 @@ slug: "why-we-read-in-age-of-ai"
 date: "2026-02-28"
 readTime: "4 min read"
 excerpt: "Efficiency is not mastery. As AI instantly summarizes our world, deep reading remains the ultimate context-loading exercise for the human brain."
+image: "why-we-read.jpeg"
 ---
 ![Why we Read](/blog/why-we-read.jpeg)
 

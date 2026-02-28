@@ -51,6 +51,7 @@ sogo-portfolio
 ├── _CONTEXT_MAP.md
 ├── ai_context.md
 ├── eslint.config.js
+├── generate-seo.js
 ├── index.html
 ├── package-lock.json
 ├── package.json

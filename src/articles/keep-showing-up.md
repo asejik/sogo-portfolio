@@ -4,6 +4,7 @@ slug: "keep-showing-up-dont-give-up"
 date: "2026-02-28"
 readTime: "5 min read"
 excerpt: "The pressure you feel isn't a signal to quit. It is the necessary load testing required to forge the character and endurance of a true builder."
+image: "keep-showing-up.jpeg"
 ---
 ![Keep Showing Up](/blog/keep-showing-up.jpeg)
 
