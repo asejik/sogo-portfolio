@@ -1,19 +1,19 @@
 # Sogo Portfolio Website & Status
-Last Updated: 2026-02-28
+Last Updated: 2026-03-01
 
 ## 1. Tech Stack & Architecture
 - **Core:** React 19 (Vite), TypeScript.
 - **Routing:** React Router Dom (with custom SPA Hash ScrollHandler).
 - **Styling:** Tailwind CSS v4, Framer Motion.
-- **SEO:** `react-helmet-async` for dynamic browser tabs; static `index.html` tags for social media bots.
+- **SEO:** `react-helmet-async` for dynamic browser tabs; static `index.html` tags for global bots; custom `generate-seo.js` post-build script for dynamic article link previews.
 - **Content Engine:** Local Markdown files (`src/articles/*.md`) parsed with `front-matter`, `react-markdown` (with custom Tailwind component mapping), and `rehype-raw`.
 - **Architecture Pattern:** Client-Side Single Page Application (SPA) with global Navbar/Footer layout.
 
 ## 2. Key Features & Rules
-- **Completed Features:** Markdown blog engine with mapped Tailwind styling; 16:9 Hero Images; Ad-blocker resilient View Counter; AI Unlocked Masterclass registration; Global Contact form; Dynamic SEO handling.
+- **Completed Features:** Markdown blog engine with mapped Tailwind styling; 16:9 Hero Images; Ad-blocker resilient View Counter; AI Unlocked Masterclass registration; Global Contact form; Dynamic SEO handling & Social Media Previews.
 - **Strict Rule:** App must always be wrapped in `<BrowserRouter>` and `<HelmetProvider>`.
 - **Strict Rule:** Mobile-First Design. Always verify `hidden` vs `flex` behavior on small screens.
-- **Strict Rule:** Blog posts must reside in `src/articles/` as `.md` files containing frontmatter (`title`, `slug`, `date`, `readTime`). Images must be served from `public/blog/`.
+- **Strict Rule:** Blog posts must reside in `src/articles/` as `.md` files containing frontmatter (`title`, `slug`, `date`, `readTime`, `excerpt`, `image`). Images must be served from `public/blog/`.
 - **Strict Rule (Tailwind v4):** All custom theme tokens (colors, fonts, animations) MUST be defined inside the `@theme` block in `src/index.css`, not `:root`.
 - **Strict Rule (Navigation):** Always use `<Link to="/#section">` instead of `<a href="#section">` to ensure SPA routing and the custom `ScrollHandler` fire correctly.
 
@@ -35,19 +35,22 @@ Last Updated: 2026-02-28
 - `src/components/layout/Navbar.tsx`: Global navigation header containing SPA `<Link>` routing.
 - `src/utils/articleLoader.ts`: Scans and parses metadata from `src/articles/*.md` using `front-matter`.
 - `public/`: Houses static assets (`headshot.png`, `ai-masterclass-flyer.jpeg`) for stable absolute URLs used by SEO bots. `public/blog/` houses 16:9 markdown hero images.
+- `generate-seo.js`: Node script run post-build to generate physical HTML files for bots to scrape article previews.
 - `vite.config.ts`: Contains local development proxy routing `/api/views` to `api.counterapi.dev/v1/` to bypass ad-blockers.
 - `vercel.json`: Contains production serverless rewrites mirroring the Vite proxy.
-- `.env`: Stores environment variables (e.g., `VITE_WEB3FORMS_ACCESS_KEY`). Ignored by Git.
+- `.env`: Stores environment variables. Ignored by Git.
 - `.vscode/settings.json`: Suppresses false-positive CSS lint warnings for the `@theme` rule.
 
 ## 5. Roadmap & Next Steps
 - [x] 2026-01-23: Fix critical crash by wrapping App in `BrowserRouter`.
 - [x] 2026-01-24: Add Markdown support for images and YouTube embeds.
+- [x] 2026-01-24: Fix Mobile Hero image visibility.
 - [x] 2026-01-24: Migrate to file-based content system (`front-matter`).
 - [x] 2026-02-23: Establish append-only strict documentation protocol.
-- [x] 2026-02-26: Build AI Unlocked masterclass registration page with glassmorphism UI and success state routing.
+- [x] 2026-02-26: Build AI Unlocked masterclass registration page with glassmorphism UI, inline CSS dropdown fixes, and success state routing.
 - [x] 2026-02-26: Integrate Google Apps Script backend with `mode: 'no-cors'` fetch request to bypass browser security blocks.
-- [x] 2026-02-26: Fix Tailwind v4 custom color resolution by migrating variables from `:root` to `@theme` in `index.css`.
+- [x] 2026-02-26: Polish success state with global "Back to Home" routing and a "Register Another Person" form reset function.
+- [x] 2026-02-26: Fix Tailwind v4 custom color resolution by migrating variables from `:root` to `@theme` in `index.css` and secure mobile navbar opacity.
 - [x] 2026-02-26: Implement static Open Graph/Twitter SEO tags in `index.html` for social media bots.
 - [x] 2026-02-26: Implement dynamic SEO using `react-helmet-async` and custom `<SEO>` component.
 - [x] 2026-02-26: Refactor `App.tsx` to global SPA layout with custom `ScrollHandler` for hash links.
@@ -57,6 +60,7 @@ Last Updated: 2026-02-28
 - [x] 2026-02-28: Implement 16:9 Markdown hero image support via `public/blog/` directory.
 - [x] 2026-02-28: Integrate CounterAPI for article view tracking.
 - [x] 2026-02-28: Implement domain masking proxy (`vite.config.ts` & `vercel.json`) to bypass client-side ad-blockers throwing `ERR_BLOCKED_BY_CLIENT`.
+- [x] 2026-03-01: Implement `generate-seo.js` post-build script to generate physical HTML files for WhatsApp/LinkedIn bot link previews.
 - [ ] Add "Tags" support to the Garden section (e.g., filter by #React, #Life).
 
 ## 6. Known Issues & Technical Debt
