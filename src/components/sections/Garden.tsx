@@ -17,7 +17,7 @@ const Garden = () => {
           </div>
           <div>
             <h2 className="text-3xl font-bold text-white">The Garden</h2>
-            <p className="text-sanctum-300">Notes on engineering, growth, and theology.</p>
+            <p className="text-sanctum-300">Notes on tech, engineering, growth, and faith.</p>
           </div>
         </div>
 

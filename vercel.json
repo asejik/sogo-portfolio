@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/api/views/(.*)",
+      "destination": "https://api.counterapi.dev/v1/sogo-portfolio/$1/up"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

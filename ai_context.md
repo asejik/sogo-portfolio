@@ -1,19 +1,19 @@
 # Sogo Portfolio Website & Status
-Last Updated: 2026-02-26
+Last Updated: 2026-02-28
 
 ## 1. Tech Stack & Architecture
 - **Core:** React 19 (Vite), TypeScript.
 - **Routing:** React Router Dom (with custom SPA Hash ScrollHandler).
 - **Styling:** Tailwind CSS v4, Framer Motion.
 - **SEO:** `react-helmet-async` for dynamic browser tabs; static `index.html` tags for social media bots.
-- **Content Engine:** Local Markdown files (`src/articles/*.md`) parsed with `front-matter`, `react-markdown`, and `rehype-raw`.
+- **Content Engine:** Local Markdown files (`src/articles/*.md`) parsed with `front-matter`, `react-markdown` (with custom Tailwind component mapping), and `rehype-raw`.
 - **Architecture Pattern:** Client-Side Single Page Application (SPA) with global Navbar/Footer layout.
 
 ## 2. Key Features & Rules
-- **Completed Features:** Markdown blog engine; AI Unlocked Masterclass registration; Global Contact form; Dynamic SEO handling.
+- **Completed Features:** Markdown blog engine with mapped Tailwind styling; 16:9 Hero Images; Ad-blocker resilient View Counter; AI Unlocked Masterclass registration; Global Contact form; Dynamic SEO handling.
 - **Strict Rule:** App must always be wrapped in `<BrowserRouter>` and `<HelmetProvider>`.
 - **Strict Rule:** Mobile-First Design. Always verify `hidden` vs `flex` behavior on small screens.
-- **Strict Rule:** Blog posts must reside in `src/articles/` as `.md` files containing frontmatter (`title`, `slug`, `date`, `readTime`).
+- **Strict Rule:** Blog posts must reside in `src/articles/` as `.md` files containing frontmatter (`title`, `slug`, `date`, `readTime`). Images must be served from `public/blog/`.
 - **Strict Rule (Tailwind v4):** All custom theme tokens (colors, fonts, animations) MUST be defined inside the `@theme` block in `src/index.css`, not `:root`.
 - **Strict Rule (Navigation):** Always use `<Link to="/#section">` instead of `<a href="#section">` to ensure SPA routing and the custom `ScrollHandler` fire correctly.
 
@@ -21,19 +21,23 @@ Last Updated: 2026-02-26
 - **Database:** None (File-System Based via Markdown).
 - **Backend API 1:** Google Apps Script (`doPost` Web App) used for AI Unlocked form data collection and automated email dispatch.
 - **Backend API 2:** Web3Forms API used for the `/contact` page to securely forward client inquiries directly to Gmail.
+- **Backend API 3:** CounterAPI (V1) used for dynamic article view tracking, proxied to bypass ad-blockers.
 - **Auth Strategy:** None (Public Portfolio).
 
 ## 4. File Map
-- `src/main.tsx`: App entry point.
+- `src/main.tsx`: App entry point. (React StrictMode enabled; causes double-counting of views locally).
 - `src/App.tsx`: Global application layout containing `<Router>`, `<HelmetProvider>`, global `<Navbar>`, and custom `<ScrollHandler>`.
 - `src/index.css`: Tailwind v4 theme configuration (`@theme`).
 - `src/components/ui/SEO.tsx`: Reusable React Helmet component for dynamic page titles and meta descriptions.
 - `src/pages/AIUnlocked.tsx`: Registration landing page for the AI Masterclass.
 - `src/pages/ContactUs.tsx`: Dedicated contact page utilizing Web3Forms for direct email delivery.
-- `src/pages/ArticleView.tsx`: Dynamic renderer for individual markdown files.
+- `src/pages/ArticleView.tsx`: Dynamic renderer mapping raw Markdown to custom Tailwind UI components, including the CounterAPI fetch logic.
 - `src/components/layout/Navbar.tsx`: Global navigation header containing SPA `<Link>` routing.
 - `src/utils/articleLoader.ts`: Scans and parses metadata from `src/articles/*.md` using `front-matter`.
-- `public/`: Houses static assets (`headshot.png`, `ai-masterclass-flyer.jpeg`) for stable absolute URLs used by SEO bots.
+- `public/`: Houses static assets (`headshot.png`, `ai-masterclass-flyer.jpeg`) for stable absolute URLs used by SEO bots. `public/blog/` houses 16:9 markdown hero images.
+- `vite.config.ts`: Contains local development proxy routing `/api/views` to `api.counterapi.dev/v1/` to bypass ad-blockers.
+- `vercel.json`: Contains production serverless rewrites mirroring the Vite proxy.
+- `.env`: Stores environment variables (e.g., `VITE_WEB3FORMS_ACCESS_KEY`). Ignored by Git.
 - `.vscode/settings.json`: Suppresses false-positive CSS lint warnings for the `@theme` rule.
 
 ## 5. Roadmap & Next Steps
@@ -49,6 +53,10 @@ Last Updated: 2026-02-26
 - [x] 2026-02-26: Refactor `App.tsx` to global SPA layout with custom `ScrollHandler` for hash links.
 - [x] 2026-02-26: Build `/contact` page and integrate Web3Forms for direct email delivery.
 - [x] 2026-02-26: Route global CTAs ("Let's Talk", "Hire Me") to the new Contact page using React Router.
+- [x] 2026-02-28: Map raw `react-markdown` HTML elements to Tailwind CSS classes for proper typography.
+- [x] 2026-02-28: Implement 16:9 Markdown hero image support via `public/blog/` directory.
+- [x] 2026-02-28: Integrate CounterAPI for article view tracking.
+- [x] 2026-02-28: Implement domain masking proxy (`vite.config.ts` & `vercel.json`) to bypass client-side ad-blockers throwing `ERR_BLOCKED_BY_CLIENT`.
 - [ ] Add "Tags" support to the Garden section (e.g., filter by #React, #Life).
 
 ## 6. Known Issues & Technical Debt
