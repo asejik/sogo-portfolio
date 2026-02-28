@@ -6,7 +6,8 @@ export interface Article {
   date: string;
   readTime: string;
   content: string;
-  excerpt?: string; // Added this type definition
+  excerpt?: string;
+  tags: string[];
 }
 
 interface ArticleAttributes {
@@ -15,6 +16,7 @@ interface ArticleAttributes {
   date?: string;
   readTime?: string;
   excerpt?: string;
+  tags?: string[]; // allow articles to specify tags in front-matter
 }
 
 export const getArticles = (): Article[] => {
@@ -37,7 +39,8 @@ export const getArticles = (): Article[] => {
       date: attributes.date || 'Unknown Date',
       readTime: attributes.readTime || '5 min read',
       content: body,
-      excerpt: attributes.excerpt
+      excerpt: attributes.excerpt,
+      tags: attributes.tags || []
     };
   });
 
