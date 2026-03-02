@@ -64,8 +64,10 @@ Last Updated: 2026-03-01
 - [x] 2026-02-28: Implement domain masking proxy (`vite.config.ts` & `vercel.json`) to bypass client-side ad-blockers throwing `ERR_BLOCKED_BY_CLIENT`.
 - [x] 2026-03-01: Implement `generate-seo.js` post-build script to generate physical HTML files for WhatsApp/LinkedIn bot link previews.
 - [x] 2026-03-01: Implement dynamic Tag Filtering in Garden section using React State and Framer Motion.
+- [x] 2026-03-02: Refactored `FeaturedProjects.tsx` to a Bento Grid layout with category-based filtering.
+- [x] 2026-03-02: Created S.T.A.R. Deep Dive modal component for technical project breakdowns.
 - [ ] Add Search bar to Garden section for title-based filtering.
-- [ ] Implement "Newsletter" footer signup with a simple external service.
+- [ ] Implement "Newsletter" footer signup with a simple external service
 
 ## 6. Known Issues & Technical Debt
 - **Debt:** Ensure `slug` in frontmatter strictly matches the filename for consistency, though this is not currently enforced by the codebase.
