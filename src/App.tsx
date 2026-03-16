@@ -14,6 +14,7 @@ import ScrollToTop from './components/ui/ScrollToTop';
 import ArticleView from './pages/ArticleView';
 import AIUnlocked from './pages/AIUnlocked';
 import ContactUs from './pages/ContactUs';
+import LiveRoom from './pages/LiveRoom';
 
 // NEW: Forces React Router to smoothly scroll to hash links like #about
 const ScrollHandler = () => {
@@ -72,6 +73,7 @@ function App() {
               <Route path="/garden/:slug" element={<ArticleView />} />
               <Route path="/ai-unlocked" element={<AIUnlocked />} />
               <Route path="/contact" element={<ContactUs />} />
+              <Route path="/live" element={<LiveRoom />} />
             </Routes>
           </div>
 
