@@ -1,9 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="32" fill="#020617"/>
-  
-  <path fill-rule="evenodd" clip-rule="evenodd" d="M18 16C14.6863 16 12 18.6863 12 22V26C12 29.3137 14.6863 32 18 32H46C49.3137 32 52 34.6863 52 38V42C52 45.3137 49.3137 48 46 48H18C14.6863 48 12 45.3137 12 42H20C20 43.1046 20.8954 44 22 44H46C47.1046 44 48 43.1046 48 42V38C48 36.8954 47.1046 36 46 36H18C14.6863 36 12 33.3137 12 30V22C12 18.6863 14.6863 16 18 16H46C49.3137 16 52 18.6863 52 22H44C44 20.8954 43.1046 20 42 20H18C16.8954 20 16 20.8954 16 22V26C16 27.1046 16.8954 28 18 28H46C49.3137 28 52 25.3137 52 22V18C52 14.6863 49.3137 12 46 12H18V16Z" fill="#f59e0b"/>
-  
-  <circle cx="48" cy="18" r="3" fill="#22d3ee">
-    <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite" />
-  </circle>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE047" />  <stop offset="40%" stop-color="#F59E0B" /> <stop offset="100%" stop-color="#B45309" /> </linearGradient>
+
+    <filter id="dropShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <circle cx="256" cy="256" r="256" fill="#0A0F1C" />
+
+  <text 
+    x="50%" 
+    y="54%" 
+    dominant-baseline="middle" 
+    text-anchor="middle" 
+    font-family="system-ui, -apple-system, 'Montserrat', 'Helvetica Neue', sans-serif" 
+    font-weight="900" 
+    font-size="240" 
+    letter-spacing="-12" 
+    fill="url(#goldGradient)" 
+    filter="url(#dropShadow)"
+  >sa</text>
 </svg>
