@@ -1,14 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
-// RESTORED: Menu and X imports
-import { Code2, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const navLinks = [
-  { name: 'About', href: '/#about' },
-  { name: 'Projects', href: '/#projects' },
-  { name: 'Garden', href: '/#garden' },
-  { name: 'AI Unlocked', href: '/ai-unlocked' },
+  { name: 'Work', href: '/#work' },
+  { name: 'How I build', href: '/#process' },
+  { name: 'Background', href: '/#about' },
+  { name: 'Writing', href: '/#writing' },
+  { name: 'Speaking', href: '/#speaking' },
 ];
 
 const Navbar = () => {
@@ -16,94 +15,74 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => setScrolled(window.scrollY > 24);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-    scrolled || isOpen
-      ? 'bg-sanctum-900/80 backdrop-blur-md border-b border-sanctum-300/10 py-4 shadow-lg'
-      : 'bg-transparent py-6'
-  }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
+        scrolled || isOpen ? 'bg-ink/95 border-b border-line' : 'bg-transparent border-b border-transparent'
+      }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 group">
-          <div className="p-2 bg-gold-500 rounded-lg group-hover:rotate-12 transition-transform">
-            <Code2 size={20} className="text-sanctum-900" />
-          </div>
-          <span className="text-xl font-bold text-white tracking-tight">
-            Sogo<span className="text-gold-500">.</span>
-          </span>
+      <div className="max-w-6xl mx-auto px-6 h-18 flex justify-between items-center">
+        <Link to="/" className="font-display text-xl font-semibold text-ivory tracking-tight">
+          Sogo Ayenigba
         </Link>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-7">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               to={link.href}
-              className="text-sm font-medium text-sanctum-300 hover:text-gold-500 transition-colors"
+              className="text-[15px] text-stone hover:text-ivory transition-colors"
             >
               {link.name}
             </Link>
           ))}
           <Link
             to="/contact"
-            className="px-5 py-2 bg-sanctum-800 hover:bg-sanctum-700 text-white text-sm font-bold rounded-full border border-sanctum-300/10 transition-colors"
+            className="ml-2 px-5 py-2.5 bg-gold-500 hover:bg-gold-400 text-ink text-[15px] font-semibold rounded-full transition-colors"
           >
-            Let's Talk
+            Start a project
           </Link>
         </div>
 
-        {/* RESTORED: Mobile Menu Button (Hamburger) */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden p-2 text-sanctum-300 hover:text-white"
+          className="md:hidden p-2 -mr-2 text-ivory"
+          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isOpen}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden absolute top-full left-0 right-0 bg-sanctum-900 border-b border-sanctum-300/10 shadow-2xl overflow-hidden"
-          >
-            <div className="flex flex-col p-6 gap-4">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="text-lg font-medium text-white hover:text-gold-500 transition-colors"
-                >
-                  {link.name}
-                </Link>
-              ))}
-
-              {/* CORRECTED: The Mobile Let's Talk button is now safely inside the dropdown */}
+      {isOpen && (
+        <div className="md:hidden border-t border-line bg-ink">
+          <div className="flex flex-col px-6 py-6 gap-1">
+            {navLinks.map((link) => (
               <Link
-                to="/contact"
+                key={link.name}
+                to={link.href}
                 onClick={() => setIsOpen(false)}
-                className="mt-4 w-full py-3 bg-gold-500 hover:bg-gold-400 text-sanctum-900 font-bold rounded-lg text-center transition-colors"
+                className="py-3 text-lg text-ivory"
               >
-                Let's Talk
+                {link.name}
               </Link>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            ))}
+            <Link
+              to="/contact"
+              onClick={() => setIsOpen(false)}
+              className="mt-4 py-3.5 bg-gold-500 text-ink font-semibold rounded-full text-center"
+            >
+              Start a project
+            </Link>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };

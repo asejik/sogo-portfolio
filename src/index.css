@@ -1,32 +1,46 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
-/* ✅ Tailwind v4 reads THIS block to generate utility classes */
+/*
+  Brand tokens (Sept 2026 refresh)
+  Warm charcoal, ivory and amber, matching the social graphics.
+  The old token names (sanctum, gold, cyan) are kept and remapped so the
+  older pages (articles, contact, AI Unlocked, live room) pick up the new look.
+*/
 @theme {
-  /* The Deep Void (Backgrounds) */
-  --color-sanctum-900: #020617;
-  --color-sanctum-800: #0f172a;
-  --color-sanctum-300: #cbd5e1;
+  /* Grounds */
+  --color-sanctum-900: #16140f; /* page background */
+  --color-sanctum-800: #1f1c16; /* raised panels */
+  --color-sanctum-700: #2a261f; /* hover panels */
+  --color-sanctum-300: #cfc7b8; /* body text on dark */
 
-  /* The Royal Foundation (Accents) */
-  --color-gold-400: #fbbf24;
-  --color-gold-500: #f59e0b;
-  --color-gold-600: #d97706;
+  /* Accent: amber */
+  --color-gold-400: #f0b75a;
+  --color-gold-500: #e8a33d;
+  --color-gold-600: #cc8a26;
 
-  /* The Tech/AI (Highlights) */
-  --color-cyan-400: #22d3ee;
-  --color-cyan-900: #164e63;
+  /* Old highlight colour, now a quiet sand so it sits with the amber */
+  --color-cyan-400: #dccba6;
+  --color-cyan-500: #c9b58a;
+  --color-cyan-900: #3a352c;
+
+  /* New named tokens */
+  --color-ivory: #f4efe6;
+  --color-stone: #a89f91;
+  --color-line: #36312a;
+  --color-ink: #16140f;
 
   /* Typography */
-  --font-sans: 'Inter', sans-serif;
-  --font-mono: 'Fira Code', monospace;
+  --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace;
 
-  /* Custom Animations */
+  /* Animations */
   --animate-spin-slow: spin 12s linear infinite;
   --animate-marquee: marquee 25s linear infinite;
   --animate-marquee-reverse: marquee-reverse 25s linear infinite;
 }
 
-/* ✅ Keep :root only for things NOT related to Tailwind utilities */
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-100%); }
@@ -37,7 +51,11 @@
   to { transform: translateX(0); }
 }
 
-/* Base Styles */
+/* Base styles */
+html {
+  scroll-padding-top: 88px;
+}
+
 body {
   background-color: var(--color-sanctum-900);
   color: var(--color-sanctum-300);
@@ -46,12 +64,36 @@ body {
   font-family: var(--font-sans);
 }
 
+/* Older pages use text-white for headings: soften it to ivory */
+.text-white {
+  color: var(--color-ivory);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold-500);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: rgb(232 163 61 / 0.35);
+  color: var(--color-ivory);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 .prose img {
   max-width: 100%;
   height: auto;
   border-radius: 0.5rem;
   margin: 2rem auto;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
 }
 
 .prose iframe {

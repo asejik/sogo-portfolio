@@ -1,13 +1,15 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
+import { MotionConfig } from 'framer-motion';
 import SEO from './components/ui/SEO';
 import Navbar from './components/layout/Navbar';
 import Hero from './components/sections/Hero';
-import TechTicker from './components/sections/TechTicker';
-import BentoGrid from './components/sections/BentoGrid';
-import FeaturedProjects from './components/sections/FeaturedProjects';
-import Garden from './components/sections/Garden';
+import Work from './components/sections/Work';
+import Process from './components/sections/Process';
+import About from './components/sections/About';
+import Writing from './components/sections/Writing';
+import Speaking from './components/sections/Speaking';
 import Contact from './components/sections/Contact';
 import Footer from './components/layout/Footer';
 import ScrollToTop from './components/ui/ScrollToTop';
@@ -26,7 +28,9 @@ const ScrollHandler = () => {
       if (element) {
         // Slight delay ensures the page has rendered before scrolling
         setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth' });
+          element.scrollIntoView({
+            behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+          });
         }, 100);
       }
     } else {
@@ -42,15 +46,16 @@ const Home = () => (
   <>
     <SEO
       title="AI Application Developer"
-      description="I turn ideas into deployed Apps & AI Agents fast."
+      description="Civil engineer turned AI application developer. I design and ship web apps and AI tools for churches, businesses and organisations."
       url="/"
     />
     <main>
       <Hero />
-      <TechTicker />
-      <BentoGrid />
-      <FeaturedProjects />
-      <Garden />
+      <Work />
+      <Process />
+      <About />
+      <Writing />
+      <Speaking />
       <Contact />
     </main>
   </>
@@ -59,10 +64,11 @@ const Home = () => (
 function App() {
   return (
     <HelmetProvider>
+      <MotionConfig reducedMotion="user">
       <Router>
         <ScrollHandler />
         {/* Added flex layout to ensure footer stays at the bottom */}
-        <div className="bg-sanctum-900 min-h-screen text-sanctum-300 selection:bg-gold-500/30 flex flex-col">
+        <div className="bg-sanctum-900 min-h-screen text-sanctum-300 flex flex-col">
 
           {/* GLOBAL NAVBAR */}
           <Navbar />
@@ -83,6 +89,7 @@ function App() {
 
         </div>
       </Router>
+      </MotionConfig>
     </HelmetProvider>
   );
 }

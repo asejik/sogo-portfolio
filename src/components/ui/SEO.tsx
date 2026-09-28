@@ -7,7 +7,7 @@ interface SEOProps {
 }
 
 const SEO = ({ title, description, url }: SEOProps) => {
-  const siteUrl = "https://www.sogoayenigba.site";
+  const siteUrl = "https://asejik.com";
   const fullUrl = url ? `${siteUrl}${url}` : siteUrl;
 
   return (
