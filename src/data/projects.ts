@@ -26,6 +26,22 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: 'scripture-copilot',
+    title: 'Scripture Copilot',
+    kind: 'Live scripture projection for church media teams',
+    summary:
+      'Listens as the preacher speaks, picks out Bible references in real time, and sends them to the projector or LED wall with one click.',
+    techStack: ['Groq (Llama 3.3 70B)', 'React', 'TypeScript', 'PWA'],
+    githubLink: 'https://github.com/asejik/scripture-copilot',
+    featured: true,
+    situation:
+      'During a service, the media team has to catch every scripture the preacher mentions, find it and put it on screen, often after the preacher has already moved on. Built for the media team at Citizens of Light Church.',
+    action:
+      'Built an app that listens through a microphone and spots Bible references as they are spoken. Clear references are recognised instantly on the device, and Groq AI sorts out messy speech (for example, "Proverbs 418" becomes Proverbs 4:18). The operator clicks Project and the verse appears in OBS or on the LED wall. The whole Bible is stored on the device, so projection keeps working without internet.',
+    result:
+      'Verses are ready to project moments after they are spoken, so the screen keeps up with the preacher. One key clears the screen instantly if something goes wrong.',
+  },
+  {
     id: 'living-word-ai',
     title: 'Living Word AI',
     kind: 'AI devotional app',
@@ -71,13 +87,59 @@ export const projects: Project[] = [
       'Staff clock in fully offline. Records sync to the Supabase database automatically as soon as the device gets a connection.',
   },
   {
+    id: 'freedom-messages',
+    title: 'Freedom Messages',
+    kind: 'Sermon streaming platform with AI search',
+    summary:
+      'Stream 12 years of sermons from Apostle Muyiwa Areo and guest ministers, and find messages by asking a question in plain English.',
+    techStack: ['Next.js 16', 'Supabase', 'Groq', 'Python'],
+    liveLink: 'https://freedom-message.vercel.app',
+    githubLink: 'https://github.com/asejik/freedom-message',
+    situation:
+      'Citizens of Light Church had over 1,400 audio sermons from 2015 to 2026, spread across 12 yearly spreadsheets and Archive.org folders. The same preacher was spelled 51 different ways, and the only way to find a message was to remember its exact title.',
+    action:
+      'Wrote a Python pipeline that cleaned up the records, merged the 51 name spellings into 29 ministers, and matched every sermon to its audio, transcript and cover art. AI then read each transcript to write a short summary and pull out key scriptures, a prayer focus and themes. On top of that, I built a Next.js site with a player that keeps playing when you change pages or lock your phone, and an "Ask AI" search where you can ask, for example, what Apostle Muyiwa taught about faith in tough times.',
+    result:
+      'The whole archive is now one library you can browse by year, preacher, series or theme, or search by what a message is about. Each sermon shows what it covers before you press play.',
+  },
+  {
+    id: 'clc-radio',
+    title: 'CLC Freedom Radio',
+    kind: 'Online radio station for a church',
+    summary:
+      'A round-the-clock church radio station where every listener hears the same thing at the same moment, like real live radio.',
+    techStack: ['React', 'TypeScript', 'Firebase', 'PWA'],
+    liveLink: 'https://clc-radio.vercel.app',
+    githubLink: 'https://github.com/asejik/clc-radio',
+    situation:
+      'CLC Freedom Church wanted an online radio station that felt truly live, with everyone hearing the same sermon or song together, without the cost and effort of a traditional live-streaming setup.',
+    action:
+      'Built a "simulated live" radio. Every second, the app checks the time against the schedule and jumps to the exact point the programme should be at, so someone who joins 10 minutes late starts at the 10-minute mark. When no sermon is scheduled, it plays worship songs, also in sync for everyone. A live listener count shows how many people are tuned in, and on an admin page the team can upload a full day\'s schedule at once, with any clashes flagged.',
+    result:
+      'The station runs by itself from a schedule, and everyone hears the same thing at the same time. It can also be installed on a phone like an app.',
+  },
+  {
+    id: 'vbs-2026',
+    title: 'VBS 2026',
+    kind: 'Event website with registration and payments',
+    summary:
+      "Landing page and registration for The Atrium Church's Vacation Bible School, where parents sign up their children and pay online.",
+    techStack: ['React', 'Supabase', 'Paystack', 'Vercel Functions'],
+    liveLink: 'https://vbs-sigma.vercel.app',
+    situation:
+      'The Atrium Church needed to register children for Vacation Bible School 2026 at two campuses, Ilorin and Lagos, each with its own fees and its own payment account.',
+    action:
+      'Built a React site with a lively landing page and photo gallery, plus a registration form where parents can add several children at once. Choosing a campus switches the fees and the Paystack account. After payment, a server function checks with Paystack that the payment is real before saving the registration and copying it to a Google Sheet for bookkeeping.',
+    result:
+      'Parents register and pay in one go, and every confirmed payment is recorded, even if the parent closes the page straight after paying.',
+  },
+  {
     id: 'soulmate-reg',
     title: 'Soulmate-Reg Platform',
     kind: 'Registration system and learning platform',
     summary:
       'Handles a rush of registrations at once, then takes each person through video lessons and issues a certificate.',
     techStack: ['Go', 'React', 'PDF generation'],
-    featured: true,
     situation:
       'A programme needed to register many people at the same time, then take each of them through a set course before certifying them.',
     action:
