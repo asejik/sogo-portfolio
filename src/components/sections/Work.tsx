@@ -107,10 +107,16 @@ const CaseStudy = ({ project, onClose }: { project: Project; onClose: () => void
   );
 };
 
+// How many "More projects" rows show before the "Show more" button
+const MORE_VISIBLE = 4;
+
 const Work = () => {
   const [active, setActive] = useState<Project | null>(null);
+  const [showAll, setShowAll] = useState(false);
   const featured = projects.filter((p) => p.featured);
   const more = projects.filter((p) => !p.featured);
+  const hiddenCount = more.length - MORE_VISIBLE;
+  const visibleMore = showAll ? more : more.slice(0, MORE_VISIBLE);
 
   return (
     <section id="work" className="py-24 md:py-32 border-t border-line">
@@ -149,8 +155,8 @@ const Work = () => {
         </div>
 
         <h3 className="mt-20 mb-2 text-ivory text-xl font-semibold">More projects</h3>
-        <ul className="border-t border-line">
-          {more.map((p) => (
+        <ul id="more-projects" className="border-t border-line">
+          {visibleMore.map((p) => (
             <li key={p.id} className="border-b border-line">
               <button
                 onClick={() => setActive(p)}
@@ -159,12 +165,23 @@ const Work = () => {
                 <span className="md:col-span-4 font-display text-ivory text-2xl font-medium group-hover:text-gold-400 transition-colors">
                   {p.title}
                 </span>
-                <span className="md:col-span-6 text-sanctum-300 leading-relaxed">{p.summary}</span>
+                <span className="hidden md:block md:col-span-6 text-sanctum-300 leading-relaxed">{p.summary}</span>
                 <span className="md:col-span-2 md:text-right text-stone text-sm">{p.kind}</span>
               </button>
             </li>
           ))}
         </ul>
+        {hiddenCount > 0 && (
+          <button
+            type="button"
+            onClick={() => setShowAll((v) => !v)}
+            aria-expanded={showAll}
+            aria-controls="more-projects"
+            className="mt-8 px-6 py-3 border border-line hover:border-stone text-ivory font-semibold rounded-full transition-colors"
+          >
+            {showAll ? 'Show fewer' : `Show ${hiddenCount} more ${hiddenCount === 1 ? 'project' : 'projects'}`}
+          </button>
+        )}
       </div>
 
       {active && <CaseStudy project={active} onClose={() => setActive(null)} />}
