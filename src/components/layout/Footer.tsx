@@ -1,4 +1,5 @@
 import { Github, Linkedin, Twitter, Instagram, Facebook } from 'lucide-react';
+import { CONTACT_EMAIL } from '../../data/contact';
 
 const socials = [
   { name: 'GitHub', href: 'https://github.com/asejik', Icon: Github },
@@ -17,6 +18,12 @@ const Footer = () => {
         <div>
           <p className="font-display text-ivory text-2xl font-semibold">Sogo Ayenigba</p>
           <p className="mt-1 text-stone">AI Application Developer, Ilorin, Nigeria</p>
+          <a
+            href={`mailto:${CONTACT_EMAIL}`}
+            className="mt-2 inline-block text-ivory hover:text-gold-400 underline-offset-4 hover:underline transition-colors"
+          >
+            {CONTACT_EMAIL}
+          </a>
         </div>
         <ul className="flex gap-2">
           {socials.map(({ name, href, Icon }) => (

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { CONTACT_EMAIL } from '../../data/contact';
 
 const Contact = () => {
   return (
@@ -26,6 +27,15 @@ const Contact = () => {
             Connect on LinkedIn
           </a>
         </div>
+        <p className="mt-8 text-stone">
+          Or email{' '}
+          <a
+            href={`mailto:${CONTACT_EMAIL}`}
+            className="text-ivory hover:text-gold-400 underline underline-offset-4 transition-colors"
+          >
+            {CONTACT_EMAIL}
+          </a>
+        </p>
       </div>
     </section>
   );

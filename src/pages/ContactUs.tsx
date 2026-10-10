@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Send, CheckCircle } from 'lucide-react';
 import SEO from '../components/ui/SEO';
+import { CONTACT_EMAIL } from '../data/contact';
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -23,7 +24,8 @@ const ContactUs = () => {
     setIsSubmitting(true);
 
     try {
-      // We are using Web3Forms. It securely forwards POST requests directly to your Gmail.
+      // Web3Forms emails each submission to the address linked to this access key
+      // (set up at web3forms.com). It should be the CONTACT_EMAIL inbox.
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
@@ -63,7 +65,16 @@ const ContactUs = () => {
           <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gold-400 to-gold-600 mb-4">
             Let's Build Something.
           </h1>
-          <p className="text-sanctum-300">Fill out the form below and I'll get back to you shortly.</p>
+          <p className="text-sanctum-300">
+            Fill out the form below and I'll get back to you shortly. Prefer email? Write to{' '}
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
+              className="text-ivory hover:text-gold-400 underline underline-offset-4 transition-colors"
+            >
+              {CONTACT_EMAIL}
+            </a>
+            .
+          </p>
         </div>
 
         <div className="bg-sanctum-800/40 backdrop-blur-md border border-white/10 p-8 rounded-3xl shadow-xl">
