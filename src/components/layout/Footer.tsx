@@ -16,6 +16,7 @@ const Footer = () => {
     <footer className="border-t border-line">
       <div className="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row md:items-center justify-between gap-8">
         <div>
+          <img src="/brand/asejik-logo-on-dark.svg" alt="asejik" width={160} height={63} className="h-14 w-auto mb-3 -ml-2" />
           <p className="font-display text-ivory text-2xl font-semibold">Sogo Ayenigba</p>
           <p className="mt-1 text-stone">AI Application Developer, Ilorin, Nigeria</p>
           <a

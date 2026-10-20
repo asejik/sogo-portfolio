@@ -28,7 +28,8 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 h-18 flex justify-between items-center">
-        <Link to="/" className="font-display text-xl font-semibold text-ivory tracking-tight">
+        <Link to="/" className="flex items-center gap-2 font-display text-xl font-semibold text-ivory tracking-tight">
+          <img src="/brand/asejik-icon-on-dark.svg" alt="" width={36} height={36} className="w-9 h-9" />
           Sogo Ayenigba
         </Link>
 
