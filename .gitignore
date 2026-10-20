@@ -25,3 +25,5 @@ dist-ssr
 .env
 *.zip
 sogo-portfolio-redesign.zip
+# Source logo pack (kept local, not deployed)
+public/asejik-logo-pack/
